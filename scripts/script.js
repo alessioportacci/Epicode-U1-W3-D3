@@ -31,10 +31,7 @@ const strikethroughText = function(event)
     let checkBox = event.target
     let label = event.target.parentElement.getElementsByTagName("label")[0]
     //Barra o sbarra la parola
-    if (checkBox.checked)
-        label.classList.add("strikethroughText")
-    else
-        label.classList.remove("strikethroughText")
+    label.classList.toggle("strikethroughText")
 }
 
 const deleteTask = function(event){
