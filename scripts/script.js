@@ -26,9 +26,10 @@ const taskList = document.getElementById("task-list")
 //Barro o no il testo
 const strikethroughText = function(event)
 {
+    console.log(event)
     //Recupero il box e label
     let checkBox = event.target
-    let label = event.target.parentElement.lastChild
+    let label = event.target.parentElement.getElementsByTagName("label")[0]
     //Barra o sbarra la parola
     if (checkBox.checked)
         label.classList.add("strikethroughText")
@@ -38,17 +39,16 @@ const strikethroughText = function(event)
 
 const deleteTask = function(event){
      //Recupero il parent
-     let parent = event.target.parentElement.remove()
-
+     const parent = event.target.parentElement.remove()
 }
 
 //Aggiorna i pulsanti
 const updateButtons = function()
 {
-    //Mi prendo l'ultimo pulsante
+    //Mi prendo tutti pulsanti per barrare e cancellare
     const buttonsCheck = document.querySelectorAll(".button-check")
     const buttonsDelete = document.querySelectorAll(".button-delete")
-
+    //Adesso prendo gli ultimi
     const lastButton = buttonsCheck[buttonsCheck.length -1]
     const lastButtonDelete = buttonsDelete[buttonsDelete.length -1]
     //Gli aggiungo l'evento
@@ -69,9 +69,7 @@ const addTask = function(taskValue)
     <label id="task-label-${id}"for="task-${id}"> ${taskValue} </label>
     <button id="elimina-${id}" class="button-delete"> Elimina</button>
     <hr>`
-
     taskList.appendChild(taskHtml)
-    //Aggiorno i pulsanti della pagina
 }
 
 //Quando aggiungi un task
@@ -85,6 +83,7 @@ taskForm.addEventListener("submit", function(e)
     input.value = ""
     //Aggiungo il nuovo pezzo di HTML
     addTask(taskValue)
+    //Aggiorno i pulsanti della pagina
     updateButtons()
 })
 
