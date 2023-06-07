@@ -1,3 +1,28 @@
 .strikethroughText {
     text-decoration: line-through;
   }
+  
+  body {
+    max-width: 50%;
+    background-color: lightgray;
+  }
+
+  header {
+    background: linear-gradient(
+      112.2deg,
+      rgb(86, 223, 223) 4.7%,
+      rgb(71, 95, 250) 110.1%
+    );
+    padding: 3px;
+  }
+
+  section {
+    margin: 1em;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: white;
+  }
+
+  section:first-child {
+    text-align: center;
+  }
