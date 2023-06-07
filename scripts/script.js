@@ -36,14 +36,24 @@ const strikethroughText = function(event)
         label.classList.remove("strikethroughText")
 }
 
+const deleteTask = function(event){
+     //Recupero il parent
+     let parent = event.target.parentElement.remove()
+
+}
+
 //Aggiorna i pulsanti
 const updateButtons = function()
 {
     //Mi prendo l'ultimo pulsante
     const buttonsCheck = document.querySelectorAll(".button-check")
+    const buttonsDelete = document.querySelectorAll(".button-delete")
+
     const lastButton = buttonsCheck[buttonsCheck.length -1]
+    const lastButtonDelete = buttonsDelete[buttonsDelete.length -1]
     //Gli aggiungo l'evento
     lastButton.addEventListener("click", e => strikethroughText(e))
+    lastButtonDelete.addEventListener("click", e => deleteTask(e))
 }
 
 //Si occupa di aggiungere un task
@@ -56,7 +66,8 @@ const addTask = function(taskValue)
     taskHtml.classList.add("tasks")
     taskHtml.innerHTML = `
     <input id="task-${id}" class="button-check" type="checkbox">
-    <label id="task-label-${id}"for="task-${id}"> ${taskValue} </label>`
+    <label id="task-label-${id}"for="task-${id}"> ${taskValue} </label>
+    <button id="elimina-${id}" class="button-delete"> Elimina</button>`
     taskList.appendChild(taskHtml)
     //Aggiorno i pulsanti della pagina
 }
