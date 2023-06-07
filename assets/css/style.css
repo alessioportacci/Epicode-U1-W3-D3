@@ -1,6 +1,10 @@
 .strikethroughText {
     text-decoration: line-through;
   }
+
+  .button-delete{
+    float: right;
+  }
   
   body {
     max-width: 50%;
@@ -26,3 +30,4 @@
   section:first-child {
     text-align: center;
   }
+

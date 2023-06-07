@@ -67,7 +67,9 @@ const addTask = function(taskValue)
     taskHtml.innerHTML = `
     <input id="task-${id}" class="button-check" type="checkbox">
     <label id="task-label-${id}"for="task-${id}"> ${taskValue} </label>
-    <button id="elimina-${id}" class="button-delete"> Elimina</button>`
+    <button id="elimina-${id}" class="button-delete"> Elimina</button>
+    <hr>`
+
     taskList.appendChild(taskHtml)
     //Aggiorno i pulsanti della pagina
 }
